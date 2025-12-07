@@ -3,10 +3,11 @@
   "short_name": "OFC Starter",
   "lang": "fr",
   "start_url": "./",
+  "scope": "./",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#0d244f",
-  "description": "Gestion simplifiée des ventes, dépenses et précomptes pour TPE/PME.",
+  "description": "Suivi simple des ventes, dépenses et précomptes pour TPE/PME.",
   "icons": [
     {
       "src": "icons/icon-192.png",
