@@ -3,7 +3,6 @@ const ASSETS = [
   "./",
   "./index.html",
   "./manifest.json",
-  "./service-worker.js",
   "./icons/icon-192.png",
   "./icons/icon-512.png",
   "./products/man_shoes.webp",
@@ -32,6 +31,6 @@ self.addEventListener("activate", event => {
 
 self.addEventListener("fetch", event => {
   event.respondWith(
-    caches.match(event.request).then(resp => resp || fetch(event.request))
+    caches.match(event.request).then(response => response || fetch(event.request))
   );
 });
