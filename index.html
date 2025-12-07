@@ -5,7 +5,7 @@
   <title>Coaching Digital Starter – OFC</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#0D244F" />
-  <link rel="manifest" href="manifest.json" />
+  <link rel="manifest" href="manifest.webmanifest" />
 
   <style>
     :root {
@@ -958,23 +958,32 @@ document.addEventListener("DOMContentLoaded", () => {
   const fab = document.getElementById("fab-main");
   const fabContainer = document.getElementById("fab-container");
 
-  fab.onclick = () => {
-    fabContainer.classList.toggle("open");
-  };
+  if (fab && fabContainer) {
+    fab.onclick = () => {
+      fabContainer.classList.toggle("open");
+    };
 
-  document.getElementById("fab-export").onclick = () => {
-    downloadExport();
-    fabContainer.classList.remove("open");
-  };
+    const fabExport = document.getElementById("fab-export");
+    const fabWhats = document.getElementById("fab-whatsapp");
 
-  document.getElementById("fab-whatsapp").onclick = () => {
-    whatsappExport();
-    fabContainer.classList.remove("open");
-  };
+    if (fabExport) {
+      fabExport.onclick = () => {
+        downloadExport();
+        fabContainer.classList.remove("open");
+      };
+    }
+
+    if (fabWhats) {
+      fabWhats.onclick = () => {
+        whatsappExport();
+        fabContainer.classList.remove("open");
+      };
+    }
+  }
 
   /* ---------- PWA ---------- */
   if ("serviceWorker" in navigator) {
-    navigator.serviceWorker.register("service-worker.js");
+    navigator.serviceWorker.register("./service-worker.js", { scope: "./" });
   }
 });
 
@@ -1034,4 +1043,3 @@ document.addEventListener("DOMContentLoaded", () => {
 
 </body>
 </html>
-
